@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DexFuel — Platform Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --bg2: #17171b;
+    --bg3: #1e1e24;
+    --fuel: #f5a623;
+    --fuel-light: #ffc766;
+    --fuel-glow: rgba(245,166,35,0.18);
+    --fuel-border: rgba(245,166,35,0.28);
+    --text: #f8fafc;
+    --text-muted: rgba(248,250,252,0.6);
+    --text-dim: rgba(248,250,252,0.35);
+    --blue: #0ea5e9;
+    --blue-glow: rgba(14,165,233,0.18);
+    --border: rgba(255,255,255,0.07);
+    --border-light: rgba(255,255,255,0.12);
+    --radius: 16px;
+    --radius-sm: 8px;
+    --radius-pill: 9999px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── DISCLAIMER BAR ── */
+  .disclaimer-bar {
+    background: rgba(245,166,35,0.08);
+    border-bottom: 1px solid var(--fuel-border);
+    padding: 10px 40px;
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .disclaimer-bar strong { color: var(--fuel); }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(245,166,35,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(14,165,233,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 48px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .cover-logo-mark {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--fuel-light), var(--fuel));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: #19130a;
+  }
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--fuel-glow);
+    border: 1px solid var(--fuel-border);
+    border-radius: var(--radius-pill);
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--fuel);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .cover-badge::before { content: '◎'; }
+  .cover h1 {
+    font-size: clamp(44px, 7vw, 80px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--fuel-light) 0%, var(--fuel) 40%, var(--text) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cover-sub {
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 48px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .cover-tagline {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .cover-quote {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+  .cover-quote em { font-style: normal; color: var(--fuel); }
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+  .cover-meta-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .cover-meta-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  /* ── LAYOUT ── */
+  .doc-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px 120px;
+  }
+
+  /* ── PAGE SECTIONS ── */
+  .page-section {
+    padding: 80px 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: 80px;
+  }
+  .page-section:first-child { border-top: none; margin-top: 0; padding-top: 80px; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fuel);
+    margin-bottom: 16px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--fuel);
+    border-radius: 2px;
+  }
+
+  h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  h2 em { font-style: normal; color: var(--fuel); }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin: 40px 0 12px;
+  }
+
+  p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  p strong { color: var(--text); font-weight: 600; }
+
+  /* ── CALLOUT / DISCLAIMER ── */
+  .disclaimer {
+    background: rgba(245,166,35,0.06);
+    border: 1px solid var(--fuel-border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin: 40px 0;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .disclaimer strong { color: var(--fuel); font-weight: 700; }
+  .disclaimer::before {
+    content: '⚠ ';
+    color: var(--fuel);
+    font-weight: 700;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--fuel-border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin: 24px 0;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .card-sm {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px 24px;
+    transition: border-color 0.2s;
+  }
+  .card-sm:hover { border-color: var(--fuel-border); }
+  .card-sm h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .card-sm p {
+    font-size: 14px;
+    margin: 0;
+    color: var(--text-muted);
+  }
+
+  /* ── STEP LIST ── */
+  .steps {
+    list-style: none;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--fuel-light), var(--fuel));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    color: #19130a;
+    margin-top: 1px;
+  }
+  .steps li p { margin: 0; font-size: 15px; }
+  .steps li strong { font-size: 15px; font-weight: 700; }
+
+  /* ── BULLET LIST ── */
+  ul.styled {
+    list-style: none;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  ul.styled li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+  ul.styled li::before {
+    content: '◎';
+    color: var(--fuel);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  ul.styled li strong { color: var(--text); }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .compare-table th {
+    background: var(--bg2);
+    padding: 14px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 2px solid var(--border);
+  }
+  .compare-table th:first-child { color: var(--fuel); border-bottom-color: var(--fuel-border); }
+  .compare-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    vertical-align: top;
+  }
+  .compare-table td:first-child {
+    color: var(--text);
+    font-weight: 600;
+    background: rgba(245,166,35,0.03);
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* ── REVENUE LIST ── */
+  .revenue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .revenue-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 20px;
+  }
+  .revenue-icon {
+    font-size: 20px;
+    width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .revenue-title { font-size: 15px; font-weight: 700; color: var(--text); }
+  .revenue-desc { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ── STAT STRIP ── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 32px 0;
+  }
+  .stat-cell {
+    background: var(--bg2);
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--fuel);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── VERTICAL LIST ── */
+  .vertical-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+  }
+  .tag {
+    background: var(--bg3);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-pill);
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  /* ── FLYWHEEL ── */
+  .flywheel {
+    background: var(--bg2);
+    border: 1px solid var(--fuel-border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .flywheel-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .fw-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .fw-arrow { color: var(--fuel); font-size: 18px; font-weight: 700; }
+  .flywheel-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ── TERMS GRID ── */
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .term-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+  }
+  .term-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--fuel);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .term-def { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+  /* ── LEGAL BLOCK ── */
+  .legal-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-top: 40px;
+  }
+  .legal-block h3 { margin-top: 0; color: var(--fuel); font-size: 16px; }
+  .legal-block p { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-dim);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .footer-disclaimer {
+    font-size: 11px;
+    color: var(--text-dim);
+    background: rgba(245,166,35,0.04);
+    border-top: 1px solid var(--fuel-border);
+    padding: 20px 40px;
+    text-align: center;
+  }
+
+  /* ── PRINT / PDF ── */
+  @media print {
+    .disclaimer-bar { position: static; }
+    .cover { min-height: auto; padding: 60px 40px; }
+    .page-section { page-break-before: always; }
+    body { background: white; color: #111; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PERSISTENT DISCLAIMER BAR -->
+<div class="disclaimer-bar">
+  <strong>Important:</strong> DexFuel is not an investment platform. Rewards are variable, estimated, and not guaranteed. Joules have no monetary value. Nothing in this document is financial advice. Users must be 18+. All trading involves risk.
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <div class="cover-logo-mark">D</div>
+    DexFuel
+  </div>
+  <div class="cover-badge">The Participation Economy</div>
+  <h1>Platform Overview</h1>
+  <p class="cover-sub">How verified daily engagement creates real economic value — and flows back to the people who create it.</p>
+  <div class="cover-tagline">The tagline</div>
+  <div class="cover-quote"><em>Show up.</em> Do things. <em>Get paid.</em></div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Version</span>
+      <span class="cover-meta-value">1.0 — June 2026</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Platform</span>
+      <span class="cover-meta-value">dexfuel.com</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Status</span>
+      <span class="cover-meta-value">Public Overview</span>
+    </div>
+  </div>
+</div>
+
+<div class="doc-body">
+
+<!-- THE PROBLEM -->
+<div class="page-section">
+  <div class="section-label">The Problem</div>
+  <h2>Every platform you use runs on<br>the same <em>broken model</em></h2>
+  <p>Social media. Streaming. Gaming. Content. They all operate the same way: you create the value, they capture it.</p>
+  <p>You post. They sell the ad. You watch. They charge the advertiser. You engage. They raise the valuation.</p>
+  <p>The people building the momentum — creators, community members, early adopters, daily participants — receive exactly nothing for the economic activity they generate. Follower counts don't pay rent. Engagement metrics don't show up in your bank account.</p>
+  <p><strong>DexFuel was built to invert this.</strong></p>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> DexFuel is not an investment platform. Daily reward allocations are variable, estimated, and not guaranteed. Joules are participation units with no monetary value. Nothing in this document constitutes financial advice or a solicitation of investment. Participation does not guarantee earnings. Users must be 18+.
+</div>
+
+<!-- THE PARTICIPATION ECONOMY -->
+<div class="page-section">
+  <div class="section-label">The Solution</div>
+  <h2>The <em>Participation Economy</em></h2>
+  <p>DexFuel is the infrastructure layer for a new category — a market structure where verified daily action creates measurable economic value that flows back to the people who create it.</p>
+  <div class="card">
+    <p style="font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--text);margin:0;text-align:center;">Participate &nbsp;→&nbsp; Earn Joules &nbsp;→&nbsp; Qualify for Estimated Daily Rewards</p>
+  </div>
+  <p>Every verified action on DexFuel earns Joules — participation units that determine your estimated share of the daily reward pool. The more you contribute, the larger your estimated share.</p>
+  <p>This isn't passive income. It isn't staking. It isn't speculation. It's a system that measures participation and distributes estimated rewards accordingly.</p>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Daily reward pools are variable and depend on platform activity. Joules are participation allocation units only — not money, not tokens, not tradable assets. Estimated reward shares may be zero depending on total platform participation. All reward figures are estimates and not guaranteed.
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="page-section">
+  <div class="section-label">How It Works</div>
+  <h2>The daily <em>participation cycle</em></h2>
+
+  <h3>The Daily Cycle</h3>
+  <ol class="steps">
+    <li><div class="step-num">1</div><p><strong>Reward pool opens</strong> — funded by platform trading fees, ad revenue, and creator campaign deposits</p></li>
+    <li><div class="step-num">2</div><p><strong>Participants complete verified tasks</strong> — video, social, education, buy-in, Grid participation</p></li>
+    <li><div class="step-num">3</div><p><strong>Joules accumulate</strong> — each verified action credits Joules proportional to task value</p></li>
+    <li><div class="step-num">4</div><p><strong>Estimated reward allocated</strong> — at cycle close, qualified participants receive their estimated share based on Joule percentage</p></li>
+    <li><div class="step-num">5</div><p><strong>Cycle resets</strong> — 24 hours, every day</p></li>
+  </ol>
+
+  <h3>Joules Explained</h3>
+  <p>Joules are participation units. They are not money. They are not tokens. They are not tradable. They have no monetary value. They measure your contribution to the platform in a given cycle and determine your estimated reward share — which is variable and not guaranteed.</p>
+
+  <h3>Tasks</h3>
+  <ul class="styled">
+    <li><strong>Video tasks</strong> — watch creator content or sponsored brand content</li>
+    <li><strong>Social tasks</strong> — post, share, or comment (verified via connected social account)</li>
+    <li><strong>Education tasks</strong> — complete quizzes or tutorials about a project</li>
+    <li><strong>Participation tasks</strong> — buy into a launch, join a Grid, complete a referral</li>
+    <li><strong>Creator tasks</strong> — custom actions defined by individual channel creators</li>
+  </ul>
+
+  <h3>Grids</h3>
+  <p>Coordinated communities working toward collective participation targets. Grids that hit their thresholds earn estimated bonus rewards distributed among members. All Grid rewards are variable and not guaranteed.</p>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> DexFuel is a technology platform. It does not guarantee earnings, returns, or rewards of any kind. Joules are not money. Daily reward pools vary with platform activity. Participation does not guarantee any specific outcome.
+</div>
+
+<!-- TWO TOKEN MODELS -->
+<div class="page-section">
+  <div class="section-label">Token Models</div>
+  <h2>Two ways to <em>launch on DexFuel</em></h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="section-label" style="margin-bottom:12px;">Channel Token</div>
+      <h3 style="margin-top:0;font-size:18px;">For creators, communities & brands</h3>
+      <p style="font-size:14px;">The primary product. Launches on DexFuel's bonding curve and stays there permanently — DexFuel is the home market. Every buy and sell generates creator fees. Token prices are not guaranteed to increase.</p>
+      <p style="font-size:13px;color:var(--text-dim);margin-bottom:0;"><strong style="color:var(--fuel);">Best for:</strong> Fitness coaches, musicians, podcasters, sports teams, brands, educators</p>
+    </div>
+    <div class="card" style="border-color:var(--border);">
+      <div class="section-label" style="margin-bottom:12px;color:var(--blue);">Project Launch</div>
+      <h3 style="margin-top:0;font-size:18px;">For protocols & products</h3>
+      <p style="font-size:14px;">Starts on DexFuel's bonding curve. Graduation-eligible to Raydium or other DEXs once liquidity thresholds are met. All token trading involves risk of loss.</p>
+      <p style="font-size:13px;color:var(--text-dim);margin-bottom:0;"><strong style="color:var(--blue);">Best for:</strong> DeFi protocols, Web3 products, on-chain applications</p>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> All token trading on DexFuel involves risk. Token prices may decrease as well as increase. Creator fees are variable and depend entirely on community trading activity. No earnings are guaranteed. DexFuel makes no representations about token value.
+</div>
+
+<!-- TECHNOLOGY -->
+<div class="page-section">
+  <div class="section-label">Technology</div>
+  <h2>Built on <em>Solana</em>. Transparent by design.</h2>
+
+  <div class="card-grid">
+    <div class="card-sm"><h4>Non-custodial</h4><p>DexFuel never holds user funds. All trading executes through smart contracts. The platform cannot access user wallets.</p></div>
+    <div class="card-sm"><h4>Transparent bonding curves</h4><p>All token pricing is determined by a public mathematical formula. No hidden market makers, no insider spreads.</p></div>
+    <div class="card-sm"><h4>On-chain verification</h4><p>Participation records, trading history, and reward distributions are publicly verifiable on Solana.</p></div>
+    <div class="card-sm"><h4>Privy.io wallets</h4><p>Social sign-in (Google, Apple, email). Wallets created silently. No seed phrase required to start.</p></div>
+    <div class="card-sm"><h4>OFAC screening</h4><p>Every new wallet screened against OFAC sanctions lists before activation.</p></div>
+    <div class="card-sm"><h4>Solana infrastructure</h4><p>Fastest, lowest-cost blockchain in production. Transactions cost a fraction of a cent.</p></div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Smart contracts execute autonomously and transactions are final. DexFuel cannot reverse transactions or recover lost funds. All on-chain activity involves risk.
+</div>
+
+<!-- FOR CREATORS -->
+<div class="page-section">
+  <div class="section-label">For Creators</div>
+  <h2>Three things creators have<br><em>never had at the same time</em></h2>
+
+  <div class="card" style="margin-bottom:16px;">
+    <h3 style="margin-top:0;">1 — Direct economic participation</h3>
+    <p style="margin:0;">Every buy and sell on your channel token generates a creator fee paid directly to you. Creator fee revenue is variable — it depends entirely on community trading activity. No earnings are guaranteed.</p>
+  </div>
+  <div class="card" style="margin-bottom:16px;">
+    <h3 style="margin-top:0;">2 — Verified engagement infrastructure</h3>
+    <p style="margin:0;">Creator tasks let fans prove they showed up. On-chain verified actions that earn Joules and may qualify fans for estimated reward shares.</p>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0;">3 — A community economy, not just a follower count</h3>
+    <p style="margin:0;">A channel token lives on-chain with a transparent market. Token value is not guaranteed and depends on community activity. It gives dedicated members a way to participate — not invest.</p>
+  </div>
+
+  <h3>Who this is built for</h3>
+  <div class="vertical-tags">
+    <span class="tag">🏋️ Fitness & Wellness</span>
+    <span class="tag">🎵 Music</span>
+    <span class="tag">🏆 Sports</span>
+    <span class="tag">📈 Finance Education</span>
+    <span class="tag">🎮 Gaming</span>
+    <span class="tag">🎙️ Podcasters</span>
+    <span class="tag">🏪 Local Brands</span>
+    <span class="tag">📚 Education</span>
+    <span class="tag">❤️ Nonprofits</span>
+    <span class="tag">📱 Content Creators</span>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Creator fee revenue is variable and not guaranteed. Token prices may decrease. Joules earned by community members are participation units only. DexFuel does not guarantee any specific level of creator income or community activity.
+</div>
+
+<!-- FOR ADVERTISERS -->
+<div class="page-section">
+  <div class="section-label">For Advertisers</div>
+  <h2>Verified daily participants.<br><em>Peak attention moments.</em></h2>
+
+  <div class="stat-strip">
+    <div class="stat-cell"><div class="stat-value">3–5×</div><div class="stat-label">Daily sessions per user</div></div>
+    <div class="stat-cell"><div class="stat-value">8+ min</div><div class="stat-label">Average session length</div></div>
+    <div class="stat-cell"><div class="stat-value">90%+</div><div class="stat-label">Video completion rate</div></div>
+    <div class="stat-cell"><div class="stat-value">18+</div><div class="stat-label">Age gated · COPPA compliant</div></div>
+  </div>
+
+  <p>Our rewarded video placement sits between task completions — the highest-intent moment in a session. Users actively choose to watch to unlock their next reward. User-initiated. Reward-gated. Peak intent.</p>
+
+  <h3>DexFuel vs Traditional Offerwall</h3>
+  <table class="compare-table">
+    <tr><th>DexFuel</th><th>Traditional Offerwall</th></tr>
+    <tr><td>Verified daily returning users</td><td>Install farmers & click farms</td></tr>
+    <tr><td>3–5 genuine sessions per day</td><td>One-time action takers</td></tr>
+    <tr><td>Social / Entertainment category</td><td>Rewards / Loyalty category</td></tr>
+    <tr><td>90%+ video completion rate</td><td>30–40% typical completion</td></tr>
+    <tr><td>On-chain verification layer</td><td>Pixel/postback fraud exposure</td></tr>
+    <tr><td>Brand-safe, moderated content</td><td>No brand safety controls</td></tr>
+    <tr><td>$15–25 target eCPM</td><td>$0.50–2 commodity CPI</td></tr>
+  </table>
+
+  <h3>Ad Formats</h3>
+  <div class="card-grid">
+    <div class="card-sm"><h4>Rewarded Video</h4><p>30s user-initiated. $15–25 eCPM target. AppLovin MAX SDK. Between task completions.</p></div>
+    <div class="card-sm"><h4>Sponsored Task</h4><p>Brand-created participation challenge. Verified actions. Highest engagement. Custom pricing.</p></div>
+    <div class="card-sm"><h4>Interstitial</h4><p>Full-screen between natural session breaks.</p></div>
+    <div class="card-sm"><h4>Banner</h4><p>Persistent during browse sessions.</p></div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> eCPM figures are targets, not guarantees. Ad performance depends on fill rates, platform scale, and network conditions. DexFuel makes no guarantees regarding advertising revenue outcomes.
+</div>
+
+<!-- TRUST & COMPLIANCE -->
+<div class="page-section">
+  <div class="section-label">Trust & Compliance</div>
+  <h2>Designed for<br><em>legal defensibility</em></h2>
+
+  <ul class="styled">
+    <li><strong>Language discipline</strong> — No "guaranteed," no "APY," no "yield," no "passive income." Every reward mention is labeled "estimated" or "variable."</li>
+    <li><strong>Age verification</strong> — 18+ attestation required before wallet creation. No exceptions.</li>
+    <li><strong>OFAC screening</strong> — Every new wallet screened against the OFAC SDN list before activation.</li>
+    <li><strong>GDPR / CCPA compliance</strong> — Consent management at signup, right to erasure, data minimization.</li>
+    <li><strong>Content moderation</strong> — All user-generated task submissions reviewed. Brand-safe content enforced.</li>
+    <li><strong>Non-custodial</strong> — DexFuel never holds user funds. Smart contracts execute directly.</li>
+    <li><strong>Transparent reward rules</strong> — Joule calculations, pool composition, and distribution logic are publicly documented.</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> DexFuel is not an investment platform and does not offer securities. Rewards are variable and estimated. Joules have no monetary value. DexFuel is not responsible for losses resulting from token trading or participation activity.
+</div>
+
+<!-- ECONOMICS -->
+<div class="page-section">
+  <div class="section-label">Economics</div>
+  <h2>Revenue from activity,<br><em>not from users</em></h2>
+
+  <div class="revenue-list">
+    <div class="revenue-item"><div class="revenue-icon">◎</div><div><div class="revenue-title">Trading Fees</div><div class="revenue-desc">2% on all bonding curve transactions. Primary revenue driver.</div></div></div>
+    <div class="revenue-item"><div class="revenue-icon">▶</div><div><div class="revenue-title">Rewarded Video</div><div class="revenue-desc">Net revenue from AppLovin MAX and partner networks. $15–25 eCPM target.</div></div></div>
+    <div class="revenue-item"><div class="revenue-icon">★</div><div><div class="revenue-title">Premium CPA Campaigns</div><div class="revenue-desc">Verified participation campaigns from brand partners.</div></div></div>
+    <div class="revenue-item"><div class="revenue-icon">⚡</div><div><div class="revenue-title">Creator Task Deposits</div><div class="revenue-desc">Creators fund task reward pools; platform takes 10%.</div></div></div>
+    <div class="revenue-item"><div class="revenue-icon">🛍</div><div><div class="revenue-title">Shop</div><div class="revenue-desc">Platform items purchased with SOL.</div></div></div>
+  </div>
+
+  <h3>The Flywheel</h3>
+  <div class="flywheel">
+    <div class="flywheel-label">Creator Side</div>
+    <div class="flywheel-row">
+      <span class="fw-item">More creators launch</span>
+      <span class="fw-arrow">→</span>
+      <span class="fw-item">More community participation</span>
+      <span class="fw-arrow">→</span>
+      <span class="fw-item">More trading activity</span>
+      <span class="fw-arrow">→</span>
+      <span class="fw-item">More creator fees</span>
+    </div>
+    <div class="flywheel-label" style="margin-top:20px;">Participant Side</div>
+    <div class="flywheel-row">
+      <span class="fw-item">More participants</span>
+      <span class="fw-arrow">→</span>
+      <span class="fw-item">More sessions</span>
+      <span class="fw-arrow">→</span>
+      <span class="fw-item">More ad revenue</span>
+      <span class="fw-arrow">→</span>
+      <span class="fw-item">Larger reward pool</span>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--text-dim);">Revenue and reward pool sizes are variable and not projected or guaranteed.</p>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Revenue figures and flywheel projections are illustrative. DexFuel does not guarantee any specific revenue outcome, reward pool size, or platform growth trajectory.
+</div>
+
+<!-- THE VISION -->
+<div class="page-section">
+  <div class="section-label">The Vision</div>
+  <h2>The economic layer that should<br>have <em>always existed</em></h2>
+  <p>The influencer who built 500,000 followers and gets $0 when a brand uses their audience for targeting. The fan who shows up every day for their favorite creator and gets nothing but a notification. The community member who was there at the beginning when it was ten people and 100,000 later has no record of that contribution.</p>
+  <p>DexFuel changes all of that. Every action verified. Every contribution recorded. Every participation rewarded — in variable, estimated amounts that reflect real platform activity.</p>
+  <div class="card" style="text-align:center;padding:40px;">
+    <p style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;color:var(--text);margin:0;line-height:1.2;">The Participation Economy<br><span style="color:var(--fuel);">is open.</span></p>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> All rewards on DexFuel are variable, estimated, and not guaranteed. Joules are participation units with no monetary value. Participation does not guarantee any specific economic outcome.
+</div>
+
+<!-- KEY TERMS -->
+<div class="page-section">
+  <div class="section-label">Glossary</div>
+  <h2>Key terms</h2>
+  <div class="terms-grid">
+    <div class="term-card"><div class="term-name">Joules</div><p class="term-def">Participation units earned through verified actions. Determine estimated reward share. Not money, not tokens, not tradable. No monetary value.</p></div>
+    <div class="term-card"><div class="term-name">Channel Token</div><p class="term-def">Community currency on DexFuel's bonding curve. Permanent. Generates variable creator fees on trades. Token prices may decrease.</p></div>
+    <div class="term-card"><div class="term-name">Project Launch</div><p class="term-def">Token with bonding curve graduation potential. For protocols. All trading involves risk of loss.</p></div>
+    <div class="term-card"><div class="term-name">Bonding Curve</div><p class="term-def">Mathematical formula determining token price based on supply. Transparent. Prices may decrease as well as increase.</p></div>
+    <div class="term-card"><div class="term-name">Grid</div><p class="term-def">Coordinated community group. Works toward collective participation targets. Bonus rewards variable and estimated.</p></div>
+    <div class="term-card"><div class="term-name">Daily Reward Cycle</div><p class="term-def">24-hour cycle. Joules accumulate; reward pool distributes at close. Pool size varies with platform activity.</p></div>
+    <div class="term-card"><div class="term-name">Rewarded Video</div><p class="term-def">User-initiated sponsored placement. Users choose to watch to unlock estimated Joule multipliers.</p></div>
+    <div class="term-card"><div class="term-name">Solana</div><p class="term-def">The blockchain DexFuel is built on. All transactions are public, verifiable, and final.</p></div>
+  </div>
+</div>
+
+<!-- LEGAL NOTICE -->
+<div class="page-section">
+  <div class="legal-block">
+    <h3>⚠ Legal Notice</h3>
+    <p>DexFuel is not an investment platform. Daily reward allocations are variable, not guaranteed, and depend on platform activity and individual participation. Joules are participation allocation units with no monetary value. Nothing in this document constitutes financial advice, an offer of securities, or a solicitation of investment. Participation in DexFuel does not guarantee earnings of any kind. Users must be 18 or older. All trading activity involves risk. Past reward distributions are not indicative of future distributions.</p>
+    <p>DexFuel operates as a technology platform. Smart contracts execute autonomously. The platform does not custody user funds. DexFuel is not responsible for losses resulting from token trading, participation activity, or changes in reward pool size.</p>
+    <p>This document may contain forward-looking statements and projections that are illustrative only. Actual results may differ materially. DexFuel makes no representations or warranties regarding the accuracy of projections or the future performance of the platform.</p>
+    <p style="margin-bottom:0;">Token prices are determined by supply and demand on bonding curves and are not guaranteed to increase. Creator fees depend on community trading volume and are not guaranteed. Joule-based reward shares are variable and estimated.</p>
+  </div>
+</div>
+
+</div><!-- /doc-body -->
+
+<!-- FOOTER DISCLAIMER -->
+<div class="footer-disclaimer">
+  ⚠ <strong>Final reminder:</strong> DexFuel is not an investment platform. Rewards are variable and estimated. Joules have no monetary value. Nothing in this document is financial advice. Participation does not guarantee earnings. All trading involves risk. Users must be 18+.
+</div>
+
+<div class="doc-footer">
+  <div>
+    <span style="font-weight:700;color:var(--fuel);">DexFuel</span> — Platform Overview v1.0 — June 2026
+  </div>
+  <div>dexfuel.com</div>
+</div>
+
+</body>
+</html>
