@@ -2,11 +2,14 @@
 ## The Participation Economy — How Verified Daily Engagement Creates Real Economic Value
 
 **Version 1.0 — June 2026**
-**Confidential Draft — For Review**
 
 ---
 
 > *"Show up. Do things. Get paid."*
+
+---
+
+> ⚠️ **Disclaimer (applies to every page of this document):** DexFuel is not an investment platform. Daily reward allocations are variable, estimated, and not guaranteed. Joules are participation allocation units with no monetary value and are not tradable. Nothing in this document constitutes financial advice, an offer of securities, or a solicitation of investment. Participation does not guarantee earnings of any kind. Users must be 18 or older. All trading activity involves risk. Past reward distributions are not indicative of future distributions.
 
 ---
 
@@ -26,19 +29,27 @@ DexFuel was built to invert this.
 
 ---
 
+> *DexFuel is not an investment platform. Rewards are variable, estimated, and not guaranteed. Joules have no monetary value. Nothing here is financial advice.*
+
+---
+
 ## The Participation Economy
 
 DexFuel is the infrastructure layer for a new category we call the **Participation Economy** — a market structure where verified daily action creates measurable economic value that flows back to the people who create it.
 
 The core mechanics are simple:
 
-**Participate → Earn Joules → Qualify for Daily Rewards**
+**Participate → Earn Joules → Qualify for Estimated Daily Rewards**
 
-Every verified action on DexFuel — watching creator content, completing education tasks, supporting a launch, posting on social, helping a Grid hit its threshold — earns Joules. Joules are participation units that determine your share of the daily reward pool. The more you contribute, the larger your estimated share.
+Every verified action on DexFuel — watching creator content, completing education tasks, supporting a launch, posting on social, helping a Grid hit its threshold — earns Joules. Joules are participation units that determine your estimated share of the daily reward pool. The more you contribute, the larger your estimated share.
 
 This isn't passive income. It isn't staking. It isn't speculation.
 
-It's a system that recognizes what every platform has always known but never acknowledged: participation has value. We just built the infrastructure to measure it and distribute it back.
+It's a system that recognizes what every platform has always known but never acknowledged: participation has value. We just built the infrastructure to measure it and distribute estimated rewards back.
+
+---
+
+> *Daily reward allocations are variable and not guaranteed. Joules are participation units only — not money, not tokens, not tradable assets. Estimated reward shares depend on total platform activity and are subject to change.*
 
 ---
 
@@ -51,16 +62,16 @@ Every 24 hours, DexFuel runs a participation cycle.
 1. The reward pool opens
 2. Participants complete verified tasks across the platform
 3. Joules accumulate based on verified participation
-4. At cycle close, qualified participants receive their estimated reward allocation based on their Joules share
+4. At cycle close, qualified participants receive their **estimated** reward allocation based on their Joules share
 5. The cycle resets
 
-The reward pool is funded by platform activity — trading fees from projects launched on DexFuel, rewarded video placements, and creator campaign deposits.
+The reward pool is funded by platform activity — trading fees from projects launched on DexFuel, rewarded video placements, and creator campaign deposits. Pool size varies with platform activity.
 
 ### Joules
 
-Joules are participation units. They are not money. They are not tokens. They are not tradable. They are how DexFuel measures your contribution to the platform in a given cycle.
+Joules are participation units. They are not money. They are not tokens. They are not tradable. They have no monetary value. They are how DexFuel measures your contribution to the platform in a given cycle.
 
-Your Joules determine what percentage of the total reward pool you qualify for. Rewards are variable and not guaranteed — they depend on platform activity and your participation share. Every reward estimate on the platform is clearly labeled as an estimate.
+Your Joules determine what percentage of the total reward pool you may qualify for. All reward estimates are variable and not guaranteed — they depend on platform activity and your participation share relative to all other participants. Every reward estimate on the platform is clearly labeled as an estimate.
 
 ### Tasks
 
@@ -75,9 +86,11 @@ Task types include:
 
 ### Grids
 
-Grids are coordinated communities. Join a Grid and work toward collective participation targets — verified buyer counts, task completions, social reach. Grids that hit their thresholds earn bonus rewards distributed among members. Grid captains earn a portion of their Grid's collective reward.
+Grids are coordinated communities. Join a Grid and work toward collective participation targets — verified buyer counts, task completions, social reach. Grids that hit their thresholds earn bonus rewards distributed among members. Grid captains earn a portion of their Grid's collective reward. All rewards are variable and estimated.
 
-Grids create accountability. They turn individual participation into community momentum.
+---
+
+> *DexFuel is a technology platform. It does not guarantee earnings, returns, or rewards of any kind. Joules are not money. Daily reward pools vary based on platform activity. Participation does not guarantee any specific outcome.*
 
 ---
 
@@ -89,15 +102,21 @@ DexFuel supports two distinct token models, designed for different use cases.
 
 The primary product. A channel token is the community currency for a creator, brand, sports team, podcast, fitness coach, school, or anyone building an audience they want to monetize.
 
-Channel tokens launch on DexFuel's bonding curve and stay there permanently. They don't graduate to external exchanges — DexFuel is their home market. This is a feature, not a limitation: it means the creator's community economy lives entirely within DexFuel's participation layer, every buy and sell generates creator fees, and the platform's participation mechanics keep the community active.
+Channel tokens launch on DexFuel's bonding curve and stay there permanently. They don't graduate to external exchanges — DexFuel is their home market.
+
+**Creator economics:** Every buy and sell on a channel token generates a creator fee paid directly to the creator. Creator fee revenue is variable and depends entirely on community trading activity. No earnings are guaranteed.
 
 **Who this is for:** Fitness creators, musicians, podcasters, sports communities, local businesses, gaming streamers, finance educators, nonprofits, schools — anyone building a community worth tokenizing.
-
-**Creator economics:** Every buy and sell on a channel token generates a creator fee paid directly to the creator. No platform cut. No delay. No cap. The community's trading activity is the creator's revenue stream.
 
 ### Project Launches — For Protocols and Products
 
 For teams building products with exchange-scale ambitions. Project launches start on DexFuel's bonding curve and can graduate to Raydium or other decentralized exchanges once they hit liquidity thresholds.
+
+All token trading involves risk. Token prices are determined by supply and demand on the bonding curve and may decrease as well as increase. Past price performance is not indicative of future performance.
+
+---
+
+> *All token trading on DexFuel involves risk. Token prices may decrease as well as increase. Creator fees are variable and depend on community trading activity. No earnings are guaranteed. DexFuel does not make any representations about token value.*
 
 ---
 
@@ -115,9 +134,13 @@ DexFuel is built on Solana — the fastest, lowest-cost blockchain in production
 
 ### The Bonding Curve
 
-A bonding curve is a mathematical formula that determines token price based on supply. As more tokens are purchased, the price increases along the curve. As tokens are sold, the price decreases. This creates a transparent, manipulation-resistant pricing mechanism — the price reflects actual supply and demand with no intermediaries.
+A bonding curve is a mathematical formula that determines token price based on supply. As more tokens are purchased, the price increases along the curve. As tokens are sold, the price decreases. This creates a transparent, manipulation-resistant pricing mechanism.
 
-For channel tokens, the bonding curve is permanent. The curve is the market. This gives creators and their communities a liquid, always-on trading environment that doesn't depend on external exchange listings.
+Token prices on bonding curves are not guaranteed to increase. Prices reflect actual supply and demand and may decrease significantly. All token purchases carry risk of loss.
+
+---
+
+> *DexFuel is a technology platform. Smart contracts execute autonomously. DexFuel does not custody user funds and cannot reverse transactions. All on-chain transactions are final. Token trading involves risk of loss.*
 
 ---
 
@@ -126,41 +149,31 @@ For channel tokens, the bonding curve is permanent. The curve is the market. Thi
 DexFuel gives creators three things they've never had at the same time:
 
 **1. Direct economic participation in their audience's activity**
-Every time someone buys or sells a creator's channel token, the creator earns. Not a percentage of platform ad revenue. Not a tipping mechanism. A direct fee from every single transaction their community generates. Building a larger, more active community directly increases creator income.
+Every time someone buys or sells a creator's channel token, the creator earns a fee. Creator fee revenue is variable — it depends entirely on how much their community trades. No earnings are guaranteed, and past activity is not indicative of future results.
 
 **2. Verified engagement infrastructure**
-Creator tasks let fans prove they showed up. Post for a launch. Watch the new video. Help the Grid hit its threshold. These aren't vanity metrics — they're on-chain verified actions that earn Joules and qualify fans for rewards. Engagement that means something.
+Creator tasks let fans prove they showed up. Post for a launch. Watch the new video. Help the Grid hit its threshold. These aren't vanity metrics — they're on-chain verified actions that earn Joules and may qualify fans for estimated reward shares.
 
 **3. A community economy, not just a follower count**
-Follower counts are platform assets. A channel token is a community asset. It lives on-chain, it has a transparent market, and it gives the most dedicated community members a way to participate in the upside they help create.
+Follower counts are platform assets. A channel token is a community asset. It lives on-chain with a transparent market. Token value is not guaranteed and depends on community activity.
 
 ### Creator Verticals
 
-Channel tokens work across every category that builds communities:
+**Fitness & Wellness** · **Music** · **Sports** · **Finance** · **Gaming** · **Podcasters & Creators** · **Brands** · **Education** · **Nonprofits**
 
-**Fitness & Wellness** — Personal trainers, nutrition coaches, wellness educators
-**Music** — Independent artists, DJs, producers, music communities
-**Sports** — Teams, athletes, fan communities, fantasy sports groups
-**Finance** — Educators, analysts, trading communities
-**Gaming** — Streamers, esports teams, gaming communities
-**Creators** — Podcasters, YouTubers, newsletter writers, Substackers
-**Brands** — Local businesses, emerging consumer brands, loyalty programs
-**Education** — Courses, schools, skill-building communities
-**Nonprofits** — Donation-linked community participation models
+---
 
-If people show up for it, DexFuel can tokenize it.
+> *Creator fee revenue is variable and not guaranteed. Token prices may decrease. Joules earned by community members are participation units only. DexFuel does not guarantee any specific level of creator income or community activity.*
 
 ---
 
 ## For Advertisers and Brand Partners
 
-DexFuel delivers something that traditional advertising cannot: **verified daily active participants at peak attention moments**.
+DexFuel delivers verified daily active participants at peak attention moments.
 
 ### The Inventory
 
-Our rewarded video placement sits between task completions — the highest-intent moment in a user's session. Users actively choose to watch a brand moment to unlock their next reward. This is user-initiated, reward-gated viewing that consistently produces completion rates above 90%.
-
-This is not passive inventory. This is not offerwall traffic. This is peak intent.
+Our rewarded video placement sits between task completions — the highest-intent moment in a user's session. Users actively choose to watch a brand moment to unlock their next reward. This is user-initiated, reward-gated viewing.
 
 **Platform profile:**
 - Daily active sessions per user: 3-5
@@ -194,9 +207,13 @@ This is not passive inventory. This is not offerwall traffic. This is peak inten
 
 ---
 
+> *eCPM figures are targets, not guarantees. Ad performance depends on fill rates, platform scale, and network conditions. DexFuel makes no guarantees regarding advertising revenue outcomes.*
+
+---
+
 ## Trust, Safety, and Compliance
 
-DexFuel is not an investment platform. Daily reward allocations are variable and not guaranteed. Joules are participation units used to calculate reward share — they have no monetary value and are not tradable.
+DexFuel is not an investment platform. Daily reward allocations are variable and not guaranteed.
 
 Every touchpoint on DexFuel is designed around these principles:
 
@@ -212,7 +229,11 @@ Every touchpoint on DexFuel is designed around these principles:
 
 **Non-custodial architecture** — DexFuel never holds user funds. Smart contracts execute trades directly. Platform cannot access user wallets.
 
-**Transparent reward rules** — Joule calculations, reward pool composition, and distribution logic are publicly documented. Nothing is hidden.
+**Transparent reward rules** — Joule calculations, reward pool composition, and distribution logic are publicly documented.
+
+---
+
+> *DexFuel is not an investment platform and does not offer securities. Rewards are variable and estimated. Joules have no monetary value. DexFuel is not responsible for losses resulting from token trading or participation activity.*
 
 ---
 
@@ -222,19 +243,23 @@ Every touchpoint on DexFuel is designed around these principles:
 
 DexFuel generates revenue from platform activity, not from user fees:
 
-1. **Trading fees** — 2% on all bonding curve transactions (buy and sell). This is the primary revenue driver.
-2. **Rewarded video** — Net revenue from AppLovin MAX and partner ad networks. Target $15-25 eCPM on rewarded placements.
-3. **Premium CPA campaigns** — Verified participation campaigns from brand partners.
-4. **Creator task deposits** — Creators fund task reward pools; platform takes 10%.
-5. **Shop** — Platform items purchased with SOL.
+1. **Trading fees** — 2% on all bonding curve transactions
+2. **Rewarded video** — Net revenue from AppLovin MAX and partner ad networks
+3. **Premium CPA campaigns** — Verified participation campaigns from brand partners
+4. **Creator task deposits** — Creators fund task reward pools; platform takes 10%
+5. **Shop** — Platform items
 
 ### The Flywheel
 
 More creators launch channels → more community members participate → more trading activity → more creator fees → more reasons to launch channels.
 
-More participants → more sessions → more ad impressions → more ad revenue → larger reward pool → more reasons to participate.
+More participants → more sessions → more ad impressions → more ad revenue → larger estimated reward pool → more reasons to participate.
 
-Every new creator brings their existing audience. Every new participant generates activity that benefits every creator. The platform compounds.
+Revenue and reward pool sizes are variable and not projected or guaranteed.
+
+---
+
+> *Revenue figures, flywheel projections, and growth assumptions in this document are illustrative. DexFuel does not guarantee any specific revenue outcome, reward pool size, or platform growth trajectory.*
 
 ---
 
@@ -242,11 +267,13 @@ Every new creator brings their existing audience. Every new participant generate
 
 DexFuel is built by practitioners who have operated in the creator economy, digital advertising, and blockchain infrastructure. The platform was designed from first principles around two constraints that traditional Web3 projects ignore:
 
-**Constraint 1: Compliance first.** Every feature, every piece of copy, every reward mechanic was designed with legal defensibility as a non-negotiable. The Participation Economy thesis works without financial instrument classification — we proved that with every design decision.
+**Constraint 1: Compliance first.** Every feature, every piece of copy, every reward mechanic was designed with legal defensibility as a non-negotiable.
 
-**Constraint 2: Advertisers, not speculators, fund the rewards.** Sustainable reward pools come from real economic activity — ad revenue, trading fees, creator campaigns. Not token emissions. Not inflationary mechanics. Real money, earned from real engagement.
+**Constraint 2: Advertisers, not speculators, fund the rewards.** Sustainable reward pools come from real economic activity — ad revenue, trading fees, creator campaigns. Not token emissions. Not inflationary mechanics.
 
-This is not a project that will exist for six months and disappear when the token printing stops. It's infrastructure. It compounds.
+---
+
+> *DexFuel is not an investment platform. This document is not a prospectus or offering memorandum. DexFuel makes no representations regarding future performance, revenue, or reward distributions.*
 
 ---
 
@@ -256,27 +283,31 @@ We are building the economic layer that should have always existed underneath th
 
 The influencer who built 500,000 followers and gets $0 when a brand uses their audience for targeting. The fan who shows up every day for their favorite creator and gets nothing but a notification. The community member who was there at the beginning when it was ten people and 100,000 later has no record of that contribution.
 
-DexFuel changes all of that. Every action verified. Every contribution recorded. Every participation rewarded.
+DexFuel changes all of that. Every action verified. Every contribution recorded. Every participation rewarded — in variable, estimated amounts that reflect real platform activity.
 
 The Participation Economy is open.
 
 ---
 
+> *All rewards on DexFuel are variable, estimated, and not guaranteed. Joules are participation units with no monetary value. Participation does not guarantee any specific economic outcome.*
+
+---
+
 ## Key Terms
 
-**Joules** — Participation units earned through verified actions on DexFuel. Determine reward share allocation. Not money, not tokens, not tradable.
+**Joules** — Participation units earned through verified actions on DexFuel. Determine estimated reward share allocation. Not money, not tokens, not tradable. No monetary value.
 
-**Channel Token** — A community currency launched by a creator or brand on DexFuel's bonding curve. Lives permanently on DexFuel. Generates creator fees on every trade.
+**Channel Token** — A community currency launched by a creator or brand on DexFuel's bonding curve. Lives permanently on DexFuel. Generates variable creator fees on trades. Token prices are not guaranteed to increase.
 
-**Project Launch** — A token launch with bonding curve graduation potential to external exchanges. For protocols and products with exchange-scale ambitions.
+**Project Launch** — A token launch with bonding curve graduation potential to external exchanges. All token trading involves risk.
 
-**Bonding Curve** — A transparent mathematical formula that determines token price based on supply. All trading on DexFuel happens through bonding curves. No hidden market makers.
+**Bonding Curve** — A transparent mathematical formula determining token price based on supply. Prices may decrease as well as increase.
 
-**Grid** — A coordinated community group working toward collective participation targets. Members work together to hit thresholds and earn bonus rewards.
+**Grid** — A coordinated community group working toward collective participation targets. Bonus rewards are variable and estimated.
 
-**Daily Reward Cycle** — The 24-hour participation cycle in which Joules are accumulated and reward allocations are distributed to qualified participants.
+**Daily Reward Cycle** — The 24-hour participation cycle. Reward pool size varies with platform activity.
 
-**Rewarded Video** — User-initiated sponsored video placement. Users choose to watch to unlock Joule multipliers. Peak-intent ad inventory.
+**Rewarded Video** — User-initiated sponsored video placement. Users choose to watch to unlock estimated Joule multipliers.
 
 ---
 
@@ -284,9 +315,15 @@ The Participation Economy is open.
 
 DexFuel is not an investment platform. Daily reward allocations are variable, not guaranteed, and depend on platform activity and individual participation. Joules are participation allocation units with no monetary value. Nothing in this document constitutes financial advice, an offer of securities, or a solicitation of investment. Participation in DexFuel does not guarantee earnings of any kind. Users must be 18 or older. All trading activity involves risk. Past reward distributions are not indicative of future distributions.
 
-DexFuel operates as a technology platform. Smart contracts execute autonomously. The platform does not custody user funds.
+DexFuel operates as a technology platform. Smart contracts execute autonomously. The platform does not custody user funds. DexFuel is not responsible for losses resulting from token trading, participation activity, or changes in reward pool size.
+
+This document may contain forward-looking statements and projections that are illustrative only. Actual results may differ materially. DexFuel makes no representations or warranties regarding the accuracy of projections or the future performance of the platform.
 
 ---
 
-*DexFuel Platform Overview v1.0 — June 2026*
-*dexfuel.com*
+> ⚠️ **Final Reminder:** DexFuel is not an investment platform. Rewards are variable and estimated. Joules have no monetary value. Nothing in this document is financial advice. Participation does not guarantee earnings. All trading involves risk.
+
+---
+
+*DexFuel Platform Overview v1.0 — June 2026 | dexfuel.com*
+*© DexFuel. All rights reserved.*
